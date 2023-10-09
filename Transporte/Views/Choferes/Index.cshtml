@@ -1,0 +1,119 @@
+﻿@model IEnumerable<Transporte.Models.Chofere>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+
+<div class="container-fluid px-4">
+
+    
+    <div class="card mb-4">
+        <p>
+        <div class="card-header">
+            @*<i class="fas fa-table me-1"></i>*@
+                <h5>Datos de Choferes</h5>
+        </div>
+    </p>
+
+        <p>
+            <a asp-action="Create" class="btn btn-primary ">Crear Chofer</a>
+        </p>
+
+    <div class="card-body">
+        <table id="datatablesSimple">
+        <thead >
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Apellido)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Direccion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Ndocumento)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Matricula)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Celular)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FechaNacimiento)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cuil)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FechaAlta)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FechaBaja)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdTdocuCNavigation)
+            </th>
+
+            <th>
+                Acción
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Apellido)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Direccion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ndocumento)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Matricula)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Celular)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FechaNacimiento)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cuil)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FechaAlta)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FechaBaja)
+            </td>
+            <td>
+                        @Html.DisplayFor(modelItem => item.IdTdocuCNavigation.Detalle)
+            </td>
+            <td>
+                    <a asp-action="Details" class="btn btn-info" asp-route-id="@item.IdChofer"><i class="bi bi-pencil-fill"></i></a>
+                    <a asp-action="Delete" class="btn btn-danger" asp-route-id="@item.IdChofer"><i class="bi bi-trash3"></i></a>              
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+</div>
+</div>
+</div>

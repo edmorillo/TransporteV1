@@ -1,0 +1,119 @@
+﻿@model IEnumerable<Transporte.Models.Viaje>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Viajes)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Origen)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Destino)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Tarifa)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FormaDeCobro)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Escobrado)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Detalle)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Remito)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Ncontenedor)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EsFacturado)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Entidad)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Nfactura)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdChoferNavigation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdClienteNavigation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdLocalidadNavigation)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Viajes)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Origen)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Destino)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Tarifa)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FormaDeCobro)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Escobrado)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Detalle)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Remito)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ncontenedor)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EsFacturado)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Entidad)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nfactura)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdChoferNavigation.IdChofer)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdClienteNavigation.IdCliente)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdLocalidadNavigation.IdLocalidad)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.IdViajes">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.IdViajes">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.IdViajes">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

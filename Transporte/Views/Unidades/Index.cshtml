@@ -1,0 +1,95 @@
+﻿@model IEnumerable<Transporte.Models.Unidade>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Matricula)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Chasis)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Modelo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Año)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CapacidadCarga)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Kilometros)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FechaMantenimiento)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FechaCompra)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.VencimientoUnidad)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdNeumaticoNavigation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdTipoUnidadNavigation)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Matricula)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Chasis)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Modelo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Año)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CapacidadCarga)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Kilometros)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FechaMantenimiento)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FechaCompra)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VencimientoUnidad)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdNeumaticoNavigation.IdNeumatico)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdTipoUnidadNavigation.IdTipoUnidad)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.IdUnidad">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.IdUnidad">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.IdUnidad">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
