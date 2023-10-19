@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 
@@ -33,6 +34,11 @@ namespace Transporte.Models
         public virtual DbSet<TiposDocumento> TiposDocumentos { get; set; } = null!;
         public virtual DbSet<Unidade> Unidades { get; set; } = null!;
         public virtual DbSet<Viaje> Viajes { get; set; } = null!;
+
+        //internal static Task<bool> Existe(int ndocumento, string nombre)
+        //{
+        //    throw new NotImplementedException();
+        //}
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -433,6 +439,8 @@ namespace Transporte.Models
 
             OnModelCreatingPartial(modelBuilder);
         }
+
+       
 
         partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
     }

@@ -47,9 +47,23 @@ namespace Transporte.Controllers
         // GET: Choferes/Create
         public IActionResult Create()
         {
-            ViewData["IdTdocuC"] = new SelectList(_context.TdocumentoCs, "Detalle", "Detalle");
+            ViewData["IdTdocuC"] = new SelectList(_context.TdocumentoCs, "IdTdocuC", "Detalle");
             return View();
         }
+
+        //[HttpGet]
+        //public async Task<IActionResult> VerificarExisteChoferes(string nombre)
+        //{
+        //    var Ndocumento = 1;
+        //    var Yaexistedocumento = await TAI2Context.Existe(Ndocumento, nombre);
+            
+        //    if(Yaexistedocumento)
+        //    {
+        //        return Json($"El nombre {nombre} ya existe");
+        //    }
+
+        //    return Json(true);
+        //}
 
         // POST: Choferes/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
@@ -64,7 +78,7 @@ namespace Transporte.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["IdTdocuC"] = new SelectList(_context.TdocumentoCs, "IdTdocuC", "IdTdocuC", chofere.IdTdocuC);
+            ViewData["IdTdocuC"] = new SelectList(_context.TdocumentoCs, "IdTdocuC", "Detalle", chofere.IdTdocuC);
             return View(chofere);
         }
 
@@ -81,7 +95,7 @@ namespace Transporte.Controllers
             {
                 return NotFound();
             }
-            ViewData["IdTdocuC"] = new SelectList(_context.TdocumentoCs, "Detalle", "Detalle", chofere.IdTdocuC);
+            ViewData["IdTdocuC"] = new SelectList(_context.TdocumentoCs, "IdTdocuC", "Detalle", chofere.IdTdocuC);
             return View(chofere);
         }
 
@@ -117,7 +131,7 @@ namespace Transporte.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["IdTdocuC"] = new SelectList(_context.TdocumentoCs, "IdTdocuC", "IdTdocuC", chofere.IdTdocuC);
+            ViewData["IdTdocuC"] = new SelectList(_context.TdocumentoCs, "IdTdocuC", "Detalle", chofere.IdTdocuC);
             return View(chofere);
         }
 
@@ -163,5 +177,7 @@ namespace Transporte.Controllers
         {
           return (_context.Choferes?.Any(e => e.IdChofer == id)).GetValueOrDefault();
         }
+
+        
     }
 }

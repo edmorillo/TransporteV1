@@ -6,101 +6,116 @@
 
 <div class="container-fluid px-4">
 
-    <div class="card mb-4">
-        <p>
-            <div class="card-header">
-                @*<i class="fas fa-table me-1"></i>*@
-                <h5>Crear Chofer</h5>
-            </div>
-        </p>
-    
-<form asp-action="Create">
-        <div class="card-body">
-    <div class="row">
-        <div class="col">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                        <div class="form-floating mb-4">
-
-                            <input asp-for="Nombre" class="form-control" id="floatingInput" placeholder="Ingrese Su nombre" aria-label=".form-control-lg" />
-                            <label asp-for="Nombre" class="control-label" for="floatingInput">Ingrese su nombre</label>
-                <span asp-validation-for="Nombre" class="text-danger"></span>
-            </div>
-
-
-
-                        <div class="form-floating mb-4">
-                <label asp-for="Apellido" class="control-label"></label>
-                            <input asp-for="Apellido" class="form-control" placeholder="Ingrese su Apellido" />
-                <span asp-validation-for="Apellido" class="text-danger"></span>
-            </div>
-                        <div class="form-floating mb-4">
-                <label asp-for="Direccion" class="control-label"></label>
-                            <input asp-for="Direccion" class="form-control" placeholder="Ingrese su Dirección" />
-                <span asp-validation-for="Direccion" class="text-danger"></span>
-            </div>
-
-                        <div class="form-floating mb-4">
-                            
-                            <select asp-for="IdTdocuC" class="form-select form-control" id="floatingSelect" asp-items="ViewBag.IdTdocuC"></select>
-                            <label asp-for="IdTdocuC" for="floatingSelect"></label>
-            </div>
-
-                        <div class="form-floating mb-4">
-                <label asp-for="Ndocumento" class="control-label"></label>
-                            <input asp-for="Ndocumento" class="form-control form-control-lg" placeholder="Ingrese su documento" />
-                <span asp-validation-for="Ndocumento" class="text-danger"></span>
-            </div>
-                        <div class="form-floating-transition mb-4">
-                <label asp-for="Email" class="control-label"></label>
-                            <input asp-for="Email" class="form-control is-invalid" placeholder="Ingrese su correo" />
-                <span asp-validation-for="Email" class="text-danger"></span>
-            </div>
-
-
-        </div>
-        <div class="col">
-            <div class="form-group mb-2">
-                <label asp-for="Matricula" class="control-label"></label>
-                            <input asp-for="Matricula" class="form-control form-control-lg" placeholder="Ingrese el n° de Matricula" />
-                <span asp-validation-for="Matricula" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Celular" class="control-label"></label>
-                            <input asp-for="Celular" class="form-control form-control-lg" placeholder="Ingrese su celular" />
-                <span asp-validation-for="Celular" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="FechaNacimiento" class="control-label"></label>
-                            <input asp-for="FechaNacimiento" class="form-control form-control-lg" placeholder="Ingrese fecha de Nacimiento" />
-                <span asp-validation-for="FechaNacimiento" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Cuil" class="control-label"></label>
-                            <input asp-for="Cuil" class="form-control form-control-lg" placeholder="Ingrese el Cuil" />
-                <span asp-validation-for="Cuil" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="FechaAlta" class="control-label"></label>
-                            <input asp-for="FechaAlta" class="form-control form-control-lg" />
-                <span asp-validation-for="FechaAlta" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="FechaBaja" class="control-label"></label>
-                            <input asp-for="FechaBaja" class="form-control form-control-lg" />
-                <span asp-validation-for="FechaBaja" class="text-danger"></span>
-            </div>
-        </div>
-        <p>
-            <div class="form-group">
-                <input type="submit" value="Guardar" class="btn btn-success" />
-                <a asp-action="Index" class="btn btn-info">Volver</a>
-            </div>
-        </p>
+    <div class="card-header">
+        <h2 class="mt-4">Crear Chofer</h2>
+        <ol class="breadcrumb mb-4">
+            <li class="breadcrumb-item"><a class="nav-link btn btn-link" asp-controller="Home" asp-action="Index">Inicio</a></li>
+            <li class="breadcrumb-item active">Crear Chofer</li>
+        </ol>
     </div>
+    <div class="card mb-4">
+
+
+        <div class="card-body">
+            <div class="row">
+                <div class="col">
+                    <form class="row g-3 needs-validation" novalidate asp-action="Create">
+                    <div class="col-sm-6">
+
+                            <div class="form-floating mb-2">
+                             <input asp-for="Nombre" class="form-control " placeholder="Ingrese Su nombre" required/>
+                            <label asp-for="Nombre" class="control-label" >Ingrese su nombre</label>
+                            <span asp-validation-for="Nombre" class="valid-feedback"></span>
+                                <span asp-validation-for="Nombre" class="valid-feedback">Datos correctos!</span>
+                                <span asp-validation-for="Nombre" class="invalid-feedback">Complete los datos!</span>
+                            </div>
+                                                           
+                        <div class="form-floating mb-2">
+                            <input asp-for="Apellido" class="form-control" placeholder="Ingrese su Apellido" />
+                            <label asp-for="Apellido" class="control-label"></label>
+                            <span asp-validation-for="Apellido" class="text-danger"></span>
+                        </div>
+                        <div class="form-floating mb-2">
+                            <input asp-for="Direccion" class="form-control" placeholder="Ingrese su Dirección" />
+                            <label asp-for="Direccion" class="control-label"></label>
+                            <span asp-validation-for="Direccion" class="text-danger"></span>
+                        </div>
+                        <div class="form-floating mb-2">
+                            <select asp-for="IdTdocuC" class="form-select"  asp-items="ViewBag.IdTdocuC" required ><option selected disabled value="">Seleccione...</option></select>
+                            <label asp-for="IdTdocuC" for="floatingSelect"></label>
+                                <span asp-validation-for="IdTdocuC" class="valid-feedback">Datos correctos!</span>
+                                <span asp-validation-for="IdTdocuC" class="invalid-feedback">Seleccione una opcion!</span>
+                        </div>
+                        <div class="form-floating mb-2">
+                            <input asp-for="Ndocumento" class="form-control" placeholder="Ingrese su documento" required />
+                            <label asp-for="Ndocumento" class="control-label"></label>
+                            <span asp-validation-for="Ndocumento" class="text-danger"></span>
+                                <span asp-validation-for="Ndocumento" class="valid-feedback">Datos correctos!</span>
+                                <span asp-validation-for="Ndocumento" class="invalid-feedback">EL campo solo debe contener números 11 números</span>
+                        </div>
+                        <div class="form-floating mb-2">
+                            <input asp-for="Email" class="form-control" placeholder="Ingrese su correo" required/>
+                            <label asp-for="Email" class="control-label"></label>
+                            <span asp-validation-for="Email" class="text-danger"></span>
+                                <span asp-validation-for="Email" class="valid-feedback">Datos correctos!</span>
+                                <span asp-validation-for="Email" class="invalid-feedback">El campo debe ser un correo electrónico válido</span>
+                        </div>
+                       
+    
+                        </div>
+                                     
+                    <div class="col-sm-6">
+                        <div class="form-floating mb-2">
+                            <input asp-for="Matricula" class="form-control" placeholder="Ingrese el n° de Matricula" />
+                            <label asp-for="Matricula" class="control-label"></label>
+                            <span asp-validation-for="Matricula" class="text-danger"></span>
+                        </div>
+                        <div class="form-floating mb-2">
+                            <input asp-for="Celular" class="form-control" placeholder="Ingrese su celular" />
+                            <label asp-for="Celular" class="control-label"></label>
+                            <span asp-validation-for="Celular" class="text-danger"></span>
+                        </div>
+                        <div class="form-floating mb-2">
+                            <input asp-for="FechaNacimiento" class="form-control" placeholder="Ingrese fecha de Nacimiento" />
+                            <label asp-for="FechaNacimiento" class="control-label"></label>
+                            <span asp-validation-for="FechaNacimiento" class="text-danger"></span>
+                        </div>
+                        <div class="form-floating mb-2">
+                            <input asp-for="Cuil" class="form-control" placeholder="" required/>
+                            <label asp-for="Cuil" class="control-label"></label>
+                                <span asp-validation-for="Cuil" class="text-danger"></span>
+                                <span asp-validation-for="Cuil" class="valid-feedback">Datos correctos!</span>                                  
+                                <span asp-validation-for="Cuil" class="invalid-feedback">EL campo solo debe contener números 11 números</span>
+
+                            </div>
+                        <div class="form-floating mb-2">
+                            
+                            <input asp-for="FechaAlta" class="form-control" />
+                            <label asp-for="FechaAlta" class="control-label"></label>
+                            <span asp-validation-for="FechaAlta" class="text-danger"></span>
+                        </div>
+                        <div class="form-floating mb-2">
+                            
+                            <input asp-for="FechaBaja" class="form-control" placeholder=""/>
+                            <label asp-for="FechaBaja" class="control-label"></label>
+                            <span asp-validation-for="FechaBaja" class="text-danger"></span>
+                        </div>
+                    </div>
+                    
+                        <div class="form-group">
+                            <input type="submit" value="Guardar" class="btn btn-success rounded-pill px-3" />
+                            <a asp-action="Index" class="btn btn-info rounded-pill px-3">Volver</a>
+                        </div>
+                    
+                </form>
+                </div>
+            </div>
         </div>
-</form>
     </div>
 </div>
+
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
 }
